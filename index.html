@@ -40,7 +40,9 @@
         .action-buttons{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
         .action-btn{flex:1;background:#2d3a4e;padding:8px;border-radius:40px;text-align:center;cursor:pointer;font-size:0.7rem;min-width:70px;transition:0.2s}
         .action-btn:hover{background:#3b4a60}
-        footer{text-align:center;padding:12px;font-size:0.6rem;border-top:1px solid #2a3a5a;color:#8a9bb5}
+        footer{text-align:center;padding:14px;font-size:0.6rem;border-top:2px solid #f5a623;background:#00000022}
+        footer a{color:#f5a623;text-decoration:none;font-weight:600;font-size:0.8rem}
+        footer a:hover{text-decoration:underline}
         .toast{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);background:#f97316;padding:6px 15px;border-radius:30px;opacity:0;transition:0.2s;z-index:999;color:#000;font-weight:bold;white-space:nowrap}
         .toast.show{opacity:1}
         .admin-hint{font-size:0.6rem;margin-top:5px;color:#f5a623;display:none}
@@ -103,7 +105,12 @@
     <!-- RESULT -->
     <div id="resultPanel" class="result-area"></div>
 
-    <footer>© OmniDiagnostics – القوة الصامتة للمستهلك</footer>
+    <!-- ======== التذييل النهائي مع الرابط ======== -->
+    <footer>
+        <a href="https://gold-calibration.netlify.app" target="_blank">
+            © OmniDiagnostics – القوة الصامتة للمستهلك
+        </a>
+    </footer>
 </div>
 
 <div id="toast" class="toast"></div>
@@ -767,10 +774,11 @@
     }
     function addPaid(amount) { paid += amount; localStorage.setItem('omniPMPaid', paid); updateCreditUI(); showToast(t('toastAdded') + ' ' + amount); }
 
+    // 🔽 روابط Gumroad الخاصة بالذهب
     document.querySelectorAll('.pay-btn').forEach(btn => {
         btn.onclick = () => {
             let pack = parseInt(btn.dataset.pack);
-            let url = pack===1?"https://mouloudkamali.gumroad.com/l/ohwww": (pack===5?"https://mouloudkamali.gumroad.com/l/magfte":"https://mouloudkamali.gumroad.com/l/fhbyhf");
+            let url = pack===1?"https://mouloudkamali.gumroad.com/l/kqvpnp": (pack===5?"https://mouloudkamali.gumroad.com/l/kgerxzl":"https://mouloudkamali.gumroad.com/l/lgbpbg");
             window.open(url,'_blank');
             setTimeout(() => { if(confirm("هل أكملت الدفع؟")) addPaid(pack); }, 3000);
         };
